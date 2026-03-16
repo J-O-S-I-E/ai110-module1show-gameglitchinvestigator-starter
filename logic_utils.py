@@ -26,6 +26,7 @@ def parse_guess(raw: str):
     return True, value, None
 
 
+# FIX: Simplified check_guess to always convert to int, fixing type inconsistency and wrong hints with AI collaboration
 def check_guess(guess, secret):
     guess = int(guess)
     secret = int(secret)

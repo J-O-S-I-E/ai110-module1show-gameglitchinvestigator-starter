@@ -70,6 +70,7 @@ with col2:
 with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
+# FIX: Reset history, status, and use difficulty-based range on new game; fixed attempts and score reset with AI help
 if new_game:
     st.session_state.attempts = 1
     st.session_state.secret = random.randint(low, high)
@@ -96,6 +97,7 @@ if submit:
     else:
         st.session_state.history.append(guess_int)
 
+        # FIX: Removed alternating string/int secret assignment to fix comparison bugs; now always uses int with Copilot collaboration
         outcome, message = check_guess(guess_int, st.session_state.secret)
 
         if show_hint:

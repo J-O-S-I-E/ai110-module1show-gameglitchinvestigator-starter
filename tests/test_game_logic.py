@@ -15,6 +15,7 @@ def test_guess_too_low():
     result = check_guess(40, 50)
     assert result == ("Too Low", "📈 Go HIGHER!")
 
+# FIX: Added test for string inputs to prevent type inconsistency regression; created with AI assistance
 def test_guess_handles_string_inputs():
     # This test targets the bug where secret was sometimes str, causing wrong comparisons
     # Now, with int conversion, it should work regardless of input type
