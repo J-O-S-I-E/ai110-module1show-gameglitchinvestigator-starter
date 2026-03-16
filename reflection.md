@@ -4,7 +4,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 ## 1. What was broken when you started?
 
-The game appeared as a basic Streamlit number guessing app with a sidebar for difficulty settings, a text input for guesses, and debug info showing the secret number, attempts, score, and history. However, it was frustratingly unplayable right from the start, with the interface looking functional but the logic completely broken. Two concrete bugs I noticed immediately were that the hints were backwards—for example, guessing higher than the secret would tell me to "Go HIGHER!" instead of lower—and the secret number seemed unstable, sometimes causing comparison errors that made winning impossible even with correct guesses.
+The game appeared as a basic Streamlit number guessing app with a sidebar for difficulty settings, a text input for guesses, and debug info showing the secret number, attempts, score, and history. However, it was frustratingly unplayable right from the start, with the interface looking functional but the logic completely broken. Two concrete bugs I noticed immediately were that the hints were backwards, for example, guessing higher than the secret would tell me to "Go HIGHER!" instead of lower—and the secret number seemed unstable, sometimes causing comparison errors that made winning impossible even with correct guesses.
 
 ---
 
