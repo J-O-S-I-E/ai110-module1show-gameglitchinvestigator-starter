@@ -35,10 +35,10 @@ def check_guess(guess, secret):
 
     if guess == secret:
         return "Win", "🎉 Correct!"
-    elif guess > secret:
-        return "Too High", "📈 Go HIGHER!"
+    if guess > secret:
+        return "Too High", "📉 Go LOWER!"   
     else:
-        return "Too Low", "📉 Go LOWER!"
+        return "Too Low", "📈 Go HIGHER!"  
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
     if outcome == "Win":
@@ -141,7 +141,6 @@ if st.session_state.status != "playing":
     st.stop()
 
 if submit:
-    st.session_state.attempts += 1
 
     ok, guess_int, err = parse_guess(raw_guess)
 
@@ -151,12 +150,7 @@ if submit:
     else:
         st.session_state.history.append(guess_int)
 
-        if st.session_state.attempts % 2 == 0:
-            secret = str(st.session_state.secret)
-        else:
-            secret = st.session_state.secret
-
-        outcome, message = check_guess(guess_int, secret)
+        outcome, message = check_guess(guess_int, st.session_state.secret)
 
         if show_hint:
             st.warning(message)
@@ -182,6 +176,7 @@ if submit:
                     f"The secret was {st.session_state.secret}. "
                     f"Score: {st.session_state.score}"
                 )
+        st.session_state.attempts +=1
 
 st.divider()
 st.caption("Built by an AI that claims this code is production-ready.")
