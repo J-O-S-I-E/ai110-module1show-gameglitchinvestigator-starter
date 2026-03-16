@@ -26,15 +26,12 @@ The game appeared as a basic Streamlit number guessing app with a sidebar for di
 
 ## 4. What did you learn about Streamlit and state?
 
-- In your own words, explain why the secret number kept changing in the original app.
-- How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
-- What change did you make that finally gave the game a stable secret number?
+The secret number kept changing in the original app because Streamlit reruns the entire script every time there's a user interaction, like clicking a button or entering input, and without using session state, variables like the secret get reset to new random values on each rerun. I'd explain Streamlit reruns to a friend by saying that unlike traditional apps where code runs once and waits for events, Streamlit treats every interaction as a full script restart from the top—it's like the app "refreshes" itself constantly to update the UI, which is efficient for data apps but tricky for games. Session state is like a persistent backpack that carries your important variables (like the secret number or score) across these reruns, so they don't get lost. The change I made that finally gave the game a stable secret number was initializing and storing the secret in `st.session_state.secret` only when it wasn't already set, ensuring it persists across reruns instead of regenerating randomly.
 
 ---
 
 ## 5. Looking ahead: your developer habits
 
-- What is one habit or strategy from this project that you want to reuse in future labs or projects?
-  - This could be a testing habit, a prompting strategy, or a way you used Git.
-- What is one thing you would do differently next time you work with AI on a coding task?
-- In one or two sentences, describe how this project changed the way you think about AI generated code.
+- One habit I want to reuse is thoroughly testing fixes with both manual gameplay and automated pytest tests, including edge-case scenarios, to ensure bugs are truly resolved and prevent regressions.
+- Next time I work with AI on a coding task, I would immediately test any logic-related suggestions (like comparisons or hints) manually in the app before assuming they're correct, rather than just reviewing the code, because the original AI-generated hints were backwards and misleading, leading to wasted time.
+- This project made me realize that AI-generated code, while fast to produce, often contains subtle logical errors that can make an app unusable, so I now approach it with more skepticism and prioritize hands-on verification over blind trust.

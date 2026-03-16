@@ -25,13 +25,20 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [x] The game's purpose is to create a number guessing game where players guess a secret number within a range, with hints to guide them, scoring based on attempts, and difficulty levels affecting the range and attempts allowed.
+- [x] Bugs found included: hints were backwards (e.g., "Go HIGHER!" for too high guesses), secret number type inconsistency causing comparison failures on even attempts, history not resetting on new games, and status not resetting properly.
+- [x] Fixes applied: Simplified `check_guess` to always use int comparisons, reset history, status, and use difficulty-based ranges on new games, added type safety, and created tests to prevent regressions.
+
+## 🧪 Challenge 1: Advanced Edge-Case Testing
+
+- [x] Completed: Added `test_guess_handles_string_inputs` to test type safety.  
+  ![Pytest Results](asset/pytest_screenshot.png)  
+  *Screenshot of pytest output showing all 4 tests passing, including the new edge-case test.*
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+- [x] ![Fixed Winning Game](asset/demo_screenshot.png)  
+  *Screenshot showing the game after fixes: player has won, with correct hints, stable secret, and reset history.*
 
 ## 🚀 Stretch Features
 
